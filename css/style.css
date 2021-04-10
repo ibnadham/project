@@ -7,47 +7,68 @@
 }
 
 /* Navbar */
-
-.navbar {
-  position: fixed;
-  z-index: 1;
-  width: 100%;
-  letter-spacing: 4px;
-  font-family: "Poppins", sans-serif;
-}
-
 .navbar {
   height: 55px;
+  font-size: 1.1rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: #fff;
+  box-shadow: 0 10px 45px rgb(179, 201, 190);
+  letter-spacing: 2px;
+}
+
+.navbar__container {
+  display: flex;
+  justify-content: space-between;
+  height: 55px;
+  z-index: 1;
+  padding: 0 20px 0 40px;
+}
+
+#navbar__logo {
+  color: #000;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1.8rem;
+}
+
+.navbar__menu {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background-color: #fff;
-  font-size: 15px;
-  box-shadow: 0px 10px 45px rgb(179, 201, 190);
-  z-index: 3;
-  font-weight: 300;
+  list-style: none;
 }
 
-.home {
-  margin-left: 30px;
-}
-
-.rightside {
-  margin-right: 20px;
-}
-.navbar a {
+.navbar__links {
+  position: relative;
   text-decoration: none;
+  padding: 0 20px;
   color: #000;
-  padding: 8px 8px;
-  border: 1px solid #fff;
 }
-.navbar a:hover {
-  background-color: #ccc;
-  border: 1px solid #ddd;
+
+.navbar__links::before {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 50;
+  margin: 0 auto;
+  width: 0;
+  height: 1px;
+  opacity: 0;
+  transition: all .5s ease;
+  background-color: #000;
+}
+
+.navbar__links:hover::before {
+  opacity: 1;
+  width: 70%;
+  left: 0;
+  right: 0;
 }
 
 /* Main Page */
-
 .mainpage {
   height: 710px;
   background: url(../img/ista.jpg);
@@ -65,14 +86,13 @@
   letter-spacing: 4px;
 }
 
-.mainpage > p > b {
+.mainpage>p>b {
   padding: 8px 16px;
   background-color: #000;
   opacity: 0.75;
 }
 
 /* Second Page */
-
 .text {
   margin-top: 30px;
   padding: 40px 40px;
@@ -93,17 +113,23 @@
   grid-template-rows: 1fr 1fr;
   grid-gap: 20px 20px;
 }
+
 .box {
   position: relative;
   height: 200px;
 }
+
 .mainpage2 img {
   height: 100%;
   width: 100%;
+  transition: box-shadow .2s ease-out;
 }
+
 .mainpage2 img:hover {
-  filter: drop-shadow(0 0 3px #000);
+  box-shadow: rgba(50, 50, 93, 0.25) 0 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0 8px 16px -8px;
 }
+
 .info {
   position: absolute;
   top: 0;
@@ -115,14 +141,13 @@
 }
 
 /* About Page */
-
 .about {
   margin-top: 30px;
   padding: 40px 40px;
   padding-bottom: 0;
 }
 
-.about > h2 {
+.about>h2 {
   font-family: "Poppins", sans-serif;
   font-size: 25px;
   padding: 20px 0;
@@ -151,42 +176,44 @@
 
 .aboutcard img {
   width: 100%;
+  transition: box-shadow .2s ease-out;
 }
 
 .aboutcard img:hover {
-  filter: drop-shadow(0 0 3px #000);
+  box-shadow: rgba(50, 50, 93, 0.25) 0 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0 8px 16px -8px;
 }
+
 .card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.card,
-h2,
-p,
-a {
+
+.card, h2, p, a {
   margin: 8px 0;
 }
-.card > a {
+
+.card>a {
   text-align: center;
-  padding: 8px 0px;
+  padding: 8px 0;
   font-size: 15px;
   font-family: "Poppins", sans-serif;
   border: none;
   background-color: #ddd;
 }
-.card > a:hover {
+
+.card>a:hover {
   background-color: #ccc;
 }
 
 /* Contact Page */
-
 .contact {
   margin-top: 30px;
   padding: 40px 40px;
 }
 
-.contact > h2 {
+.contact>h2 {
   font-size: 25px;
   font-family: "Poppins", sans-serif;
   padding: 25px 0;
@@ -194,25 +221,27 @@ a {
   border-bottom: 1px solid lightgrey;
 }
 
-.contact > p {
+.contact>p {
   font-size: 15px;
   font-family: "Poppins", sans-serif;
   padding: 20px 0;
   letter-spacing: 1px;
 }
+
 .inputbox {
   display: flex;
   flex-direction: column;
   max-width: 100%;
 }
 
-.inputbox > input {
+.inputbox>input {
   padding: 12px 10px;
   margin: 8px 0;
   font-size: 15px;
   border: 2px solid #ccc;
 }
-.contact > button {
+
+.contact>button {
   margin: 15px 0;
   padding: 10px 30px;
   background-color: #000;
@@ -220,27 +249,28 @@ a {
   color: #fff;
 }
 
-.contact > button:hover {
+.contact>button:hover {
   background-color: #ddd;
   color: #000;
 }
-/* Last Page*/
 
+/* Last Page*/
 .lastpage {
   margin: 40px 40px;
   margin-bottom: 0;
 }
-.lastpage > img {
+
+.lastpage>img {
   max-width: 100%;
 }
 
 /* Footer Page */
-
 footer {
   height: 13vh;
   background-color: #000;
 }
-footer > p {
+
+footer>p {
   color: #fff;
   display: flex;
   align-items: center;
@@ -255,9 +285,94 @@ footer > p {
 }
 
 @media screen and (max-width: 768px) {
-  .navbar {
-    font-size: 12px;
+  .navbar__container {
+    width: 100%;
+    padding: 0;
   }
+
+  .navbar__menu {
+    display: grid;
+    grid-template-columns: auto;
+    margin: 0;
+    width: 100%;
+    position: absolute;
+    top: -1000px;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: -1;
+    background: #ffffff;
+  }
+
+  .navbar__menu.active {
+    background: #ffffff;
+    top: 100%;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 99;
+    height: 60vh;
+    font-size: 1.6rem;
+  }
+
+  #navbar__logo {
+    padding-left: 40px;
+  }
+
+  .navbar__toggle .bar {
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background: #000;
+  }
+
+  .navbar__item {
+    width: 100%;
+  }
+
+  .navbar__links {
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    display: table;
+  }
+
+  .navbar__btn {
+    padding-bottom: 2rem;
+  }
+
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 80px;
+    margin: 0;
+  }
+
+  #mobile-menu {
+    position: absolute;
+    top: 20%;
+    right: 5%;
+    transform: translate(5%, 20%);
+  }
+
+  .navbar__toggle .bar {
+    display: flex;
+    cursor: pointer;
+  }
+
+  #mobile-menu.is-active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  #mobile-menu.is-active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  #mobile-menu.is-active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
   .mainpage {
     background: url(../img/ist.jpg);
     background-size: cover;
@@ -270,17 +385,23 @@ footer > p {
     grid-template-rows: 1fr 1fr;
     grid-gap: 15px 15px;
   }
+
   .box {
     position: relative;
     height: 200px;
   }
+
   .mainpage2 img {
     height: 100%;
     width: 100%;
+    transition: box-shadow .2s ease-out;
   }
+
   .mainpage2 img:hover {
-    filter: drop-shadow(0 0 3px #000);
+    box-shadow: rgba(50, 50, 93, 0.25) 0 13px 27px -5px,
+      rgba(0, 0, 0, 0.3) 0 8px 16px -8px;
   }
+
   .info {
     position: absolute;
     top: 0;
@@ -290,6 +411,7 @@ footer > p {
     padding: 3px 7px;
     z-index: 2;
   }
+
   .paragraph {
     font-size: 12px;
     font-family: "Poppins", sans-serif;
@@ -313,13 +435,49 @@ footer > p {
     width: 100%;
   }
 }
+
 @media screen and (max-width: 450px) {
-  .navbar {
-    font-size: 10px;
+  #navbar__logo {
+    color: #000;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.3rem;
   }
+
+  .navbar__menu.active {
+    background: #ffffff;
+    top: 100%;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 99;
+    height: 40vh;
+    font-size: 1.1rem;
+  }
+
+  .navbar__toggle .bar {
+    width: 20px;
+    height: 2px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background: #000;
+  }
+
+  #mobile-menu.is-active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  #mobile-menu.is-active .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  #mobile-menu.is-active .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
   .mainpage p {
     font-size: 20px;
   }
+
   .mainpage {
     background: url(../img/img.jpg) no-repeat;
     position: relative;
@@ -335,17 +493,22 @@ footer > p {
     grid-template-rows: 1fr;
     grid-gap: 15px 15px;
   }
+
   .box {
     position: relative;
     height: 200px;
   }
+
   .mainpage2 img {
     height: 100%;
     width: 100%;
+    transition: box-shadow .2s ease-out;
   }
+
   .mainpage2 img:hover {
-    filter: drop-shadow(0 0 3px #000);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
   }
+
   .info {
     position: absolute;
     top: 0;
@@ -355,6 +518,7 @@ footer > p {
     padding: 3px 7px;
     z-index: 2;
   }
+
   .paragraph {
     font-size: 10px;
     font-family: "Poppins", sans-serif;
@@ -377,22 +541,25 @@ footer > p {
   .aboutcard img {
     width: 100%;
   }
-  .contact > button {
+
+  .contact>button {
     margin: 10px 0;
     padding: 7px 23px;
     background-color: #000;
     font-size: 10px;
     color: #fff;
   }
+
   .rightside {
     display: none;
   }
+
   .contact {
     margin-top: 15px;
     padding: 10px 10px;
   }
 
-  .contact > h2 {
+  .contact>h2 {
     font-size: 20px;
     font-family: "Poppins", sans-serif;
     padding: 15px 0;
